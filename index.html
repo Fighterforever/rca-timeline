@@ -47,7 +47,7 @@
         <div class="timeline">
             <div class="timeline-item" id="early">
                 <div class="timeline-content">
-                    <h2>早期机器学习方法的应用(2010-2015)</h2>
+                    <h2>早期机器学习方法的应用</h2>
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">研究动机与背景</h5>
@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div class="tech-item">
-                            <h4>基础分类器应用(2012-2015)</h4>
+                            <h4>基础分类器应用</h4>
                             <div class="tech-details">
                                 <p><strong>研究动机：</strong>需要从大量日志中提取有用信息并进行分类</p>
                                 <p><strong>技术方案：</strong></p>
@@ -76,7 +76,7 @@
                             </div>
                         </div>
                         <div class="tech-item">
-                            <h4>规则提取与关联挖掘(2014)</h4>
+                            <h4>规则提取与关联挖掘</h4>
                             <div class="tech-details">
                                 <p><strong>研究动机：</strong>需要自动化发现故障模式并建立可重用的诊断规则</p>
                                 <p><strong>代表工作：</strong>Lin等人使用关联规则挖掘从故障日志中提取模式</p>
@@ -109,6 +109,22 @@
                                 <p><strong>技术创新：</strong>将Web链接分析算法应用于服务依赖图，能有效处理环路依赖和多重路径</p>
                             </div>
                         </div>
+                        <div class="tech-item">
+                            <h4>光谱分析方法(2018-2019)</h4>
+                            <div class="tech-details">
+                                <p><strong>研究动机：</strong>需要区分正常和异常追踪的重要性差异</p>
+                                <p><strong>代表工作：</strong>SBLD使用光谱算法分析日志中的异常</p>
+                                <p><strong>为什么这样做：</strong>光谱方法能有效提取图结构中的主要特征，降低噪声影响</p>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <h4>贝叶斯网络在RCA中的应用(2018)</h4>
+                            <div class="tech-details">
+                                <p><strong>研究动机：</strong>需要处理系统观察数据中的不确定性和不完整性</p>
+                                <p><strong>代表工作：</strong>基于贝叶斯网络的因果推断模型</p>
+                                <p><strong>技术价值：</strong>能表示变量间的条件依赖关系，适合处理RCA中的不确定性推理</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -131,6 +147,27 @@
                                 <p><strong>技术突破：</strong>能有效捕捉长序列中的时间依赖关系，识别微妙的时序异常</p>
                             </div>
                         </div>
+                        <div class="tech-item">
+                            <h4>自编码器模型(2019-2020)</h4>
+                            <div class="tech-details">
+                                <p><strong>研究动机：</strong>需要无监督方式学习正常系统行为，检测异常</p>
+                                <p><strong>代表工作：</strong></p>
+                                <ul>
+                                    <li>CSL(2020)：使用自编码器识别异常服务指标</li>
+                                    <li>TraceAnomaly(2020)：使用变分自编码器(VAE)识别追踪中的异常</li>
+                                </ul>
+                                <p><strong>为什么有效：</strong>自编码器能学习数据的压缩表示，偏离正常模式的实例重建误差更大，便于异常检测</p>
+                                <p><strong>局限性：</strong>对训练数据质量要求高，难以处理多模态数据</p>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <h4>传统CNN与RNN的结合(2020)</h4>
+                            <div class="tech-details">
+                                <p><strong>研究动机：</strong>单一网络架构难以同时捕捉空间和时间特征</p>
+                                <p><strong>代表工作：</strong>DéjàVu(2022)使用GRU和CNN结合编码故障单元的指标</p>
+                                <p><strong>技术创新：</strong>CNN提取空间特征，RNN捕捉时序依赖，更全面地表征系统状态</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -151,6 +188,26 @@
                                 <p><strong>研究动机：</strong>需要同时学习节点特征和拓扑结构</p>
                                 <p><strong>代表工作：</strong>Sleuth(2023)使用GNN捕获追踪中每个跨度的因果影响</p>
                                 <p><strong>技术价值：</strong>能有效整合节点特征和图结构信息，适合处理复杂依赖关系</p>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <h4>层次化图神经网络(2022-2023)</h4>
+                            <div class="tech-details">
+                                <p><strong>研究动机：</strong>微服务系统具有天然的层次结构，需要区分层内和层间关系</p>
+                                <p><strong>代表工作：</strong>REASON(2023)使用层次化GNN建模层内和层间非线性因果关系</p>
+                                <p><strong>为什么创新：</strong>专门设计的网络结构能更好地反映微服务系统的层次依赖特性，提高建模精度</p>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <h4>图变分自编码器(2023)</h4>
+                            <div class="tech-details">
+                                <p><strong>研究动机：</strong>需要同时处理图结构和节点特征的异常</p>
+                                <p><strong>代表工作：</strong></p>
+                                <ul>
+                                    <li>TraceVAE(2023)：引入双变量图变分自编码器，处理结构和时间消耗两类异常</li>
+                                    <li>Sage(2021)：使用图形化变分自编码器进行反事实模拟</li>
+                                </ul>
+                                <p><strong>技术突破：</strong>能在保持图结构的同时学习节点的潜在表示，更好地捕捉正常模式下的多维依赖</p>
                             </div>
                         </div>
                     </div>
@@ -197,6 +254,31 @@
                                 <p><strong>代表工作：</strong>Ahmed等人(2023)使用特定领域数据集微调LLM生成潜在根因</p>
                                 <p><strong>技术优势：</strong>能直接处理非结构化文本，无需复杂特征工程</p>
                                 <p><strong>局限性：</strong>微调成本高，可能随时间产生更多幻觉</p>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <h4>检索增强生成(RAG)在RCA中的应用(2023)</h4>
+                            <div class="tech-details">
+                                <p><strong>研究动机：</strong>需要将LLM的文本理解能力与系统特定知识结合</p>
+                                <p><strong>代表工作：</strong></p>
+                                <ul>
+                                    <li>RCACopilot(2023)结合检索增强和诊断收集工具</li>
+                                    <li>PACE(2023)通过评估"接地度"和历史参考估计置信度</li>
+                                </ul>
+                                <p><strong>为什么创新：</strong>检索增强能将历史故障知识与LLM推理能力结合，降低幻觉风险</p>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <h4>LLM代理系统(2023-2024)</h4>
+                            <div class="tech-details">
+                                <p><strong>研究动机：</strong>需要自主决策收集哪些诊断信息，模拟人类专家诊断流程</p>
+                                <p><strong>代表工作：</strong></p>
+                                <ul>
+                                    <li>RCAgent(2023)基于ReAct代理解决动态数据收集问题</li>
+                                    <li>ADARMA(2023)利用LLM进行概率推理和历史数据分析</li>
+                                </ul>
+                                <p><strong>技术突破：</strong>代理系统能够执行整个诊断流程，包括数据收集、问题分析和解决方案生成</p>
+                                <p><strong>未来方向：</strong>与专业工具和现有监控系统深度集成，进一步增强自主诊断能力</p>
                             </div>
                         </div>
                     </div>
