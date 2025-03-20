@@ -144,6 +144,14 @@
                             <div class="tech-details">
                                 <p><strong>研究动机：</strong>追踪和日志本质上是序列数据，需要捕捉时间依赖关系</p>
                                 <p><strong>代表工作：</strong>LSTM-AD(2019)：使用LSTM提取操作序列和延迟时间序列中的时间特征</p>
+                                <p><strong>技术实现细节：</strong></p>
+                                <ul>
+                                    <li><strong>数据处理：</strong>将服务调用追踪转换为操作序列和时延序列两种表示</li>
+                                    <li><strong>模型架构：</strong>双向LSTM编码器提取时序特征，隐含状态作为序列表征</li>
+                                    <li><strong>训练方法：</strong>对正常序列进行无监督学习，训练模型预测下一步操作和时延</li>
+                                    <li><strong>检测原理：</strong>计算真实值与预测值偏差，使用动态阈值判断异常</li>
+                                    <li><strong>根因定位：</strong>识别出贡献度最高的操作节点作为潜在根因</li>
+                                </ul>
                                 <p><strong>技术突破：</strong>能有效捕捉长序列中的时间依赖关系，识别微妙的时序异常</p>
                             </div>
                         </div>
@@ -156,6 +164,23 @@
                                     <li>CSL(2020)：使用自编码器识别异常服务指标</li>
                                     <li>TraceAnomaly(2020)：使用变分自编码器(VAE)识别追踪中的异常</li>
                                 </ul>
+                                <p><strong>技术实现细节：</strong></p>
+                                <ul>
+                                    <li><strong>CSL实现机制：</strong></li>
+                                    <ul>
+                                        <li>收集服务级和容器级KPI指标，采用滑动窗口分段</li>
+                                        <li>设计包含卷积层的自编码器，学习正常运行模式</li>
+                                        <li>通过重建误差排序，采用自适应阈值判断异常</li>
+                                        <li>结合异常检测结果和服务拓扑图定位根因服务</li>
+                                    </ul>
+                                    <li><strong>TraceAnomaly实现机制：</strong></li>
+                                    <ul>
+                                        <li>追踪结构编码：设计邻接矩阵表示调用结构</li>
+                                        <li>时间特征编码：统计每个服务的执行时间分布</li>
+                                        <li>VAE训练：同时学习重构追踪结构和时间分布</li>
+                                        <li>异常评分：基于结构和时间两个维度的重建损失</li>
+                                    </ul>
+                                </ul>
                                 <p><strong>为什么有效：</strong>自编码器能学习数据的压缩表示，偏离正常模式的实例重建误差更大，便于异常检测</p>
                                 <p><strong>局限性：</strong>对训练数据质量要求高，难以处理多模态数据</p>
                             </div>
@@ -165,8 +190,91 @@
                             <div class="tech-details">
                                 <p><strong>研究动机：</strong>单一网络架构难以同时捕捉空间和时间特征</p>
                                 <p><strong>代表工作：</strong>DéjàVu(2022)使用GRU和CNN结合编码故障单元的指标</p>
+                                <p><strong>技术实现细节：</strong></p>
+                                <ul>
+                                    <li><strong>数据收集与预处理：</strong></li>
+                                    <ul>
+                                        <li>以最小故障单元(FU)为粒度收集系统指标</li>
+                                        <li>将时序指标转换为二维矩阵表示，便于CNN处理</li>
+                                        <li>针对不同故障单元提取相关指标集合</li>
+                                    </ul>
+                                    <li><strong>模型架构设计：</strong></li>
+                                    <ul>
+                                        <li>CNN层：提取每个时间窗口内的空间特征相关性</li>
+                                        <li>GRU层：捕获指标随时间的变化趋势和依赖关系</li>
+                                        <li>注意力机制：关注对故障诊断最重要的指标特征</li>
+                                        <li>分类层：多标签分类判断不同根因类型的可能性</li>
+                                    </ul>
+                                    <li><strong>训练与优化：</strong></li>
+                                    <ul>
+                                        <li>使用历史故障标记数据进行监督学习</li>
+                                        <li>损失函数综合考虑分类准确率和误报率</li>
+                                        <li>使用早停和正则化防止过拟合</li>
+                                    </ul>
+                                </ul>
                                 <p><strong>技术创新：</strong>CNN提取空间特征，RNN捕捉时序依赖，更全面地表征系统状态</p>
                             </div>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">深度学习方法对比</h5>
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>方法类型</th>
+                                        <th>典型代表</th>
+                                        <th>数据处理能力</th>
+                                        <th>计算复杂度</th>
+                                        <th>适用场景</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>序列模型(LSTM/GRU)</td>
+                                        <td>LSTM-AD</td>
+                                        <td>优秀的长序列时间依赖捕捉</td>
+                                        <td>中等</td>
+                                        <td>日志序列、操作追踪分析</td>
+                                    </tr>
+                                    <tr>
+                                        <td>自编码器</td>
+                                        <td>CSL, TraceAnomaly</td>
+                                        <td>无监督学习正常模式</td>
+                                        <td>相对较低</td>
+                                        <td>异常检测、稀有故障识别</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CNN+RNN混合架构</td>
+                                        <td>DéjàVu</td>
+                                        <td>同时捕捉空间和时间特征</td>
+                                        <td>较高</td>
+                                        <td>多维指标和序列混合数据</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="features-comparison mt-4">
+                        <div class="feature-card strength">
+                            <h5>深度学习方法优势</h5>
+                            <ul>
+                                <li>具备学习复杂非线性关系的能力</li>
+                                <li>无需手动特征工程，能自动提取特征</li>
+                                <li>对大规模数据有良好的处理能力</li>
+                                <li>可以处理多种形式的非结构化数据</li>
+                                <li>端到端学习减少中间信息损失</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card weakness">
+                            <h5>深度学习方法局限</h5>
+                            <ul>
+                                <li>训练需要大量高质量数据</li>
+                                <li>模型"黑盒"性质导致可解释性差</li>
+                                <li>处理图结构数据效率不高</li>
+                                <li>难以整合领域专家知识</li>
+                                <li>模型泛化到新故障类型能力有限</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -187,6 +295,28 @@
                             <div class="tech-details">
                                 <p><strong>研究动机：</strong>需要同时学习节点特征和拓扑结构</p>
                                 <p><strong>代表工作：</strong>Sleuth(2023)使用GNN捕获追踪中每个跨度的因果影响</p>
+                                <p><strong>技术实现细节：</strong></p>
+                                <ul>
+                                    <li><strong>图构建方法：</strong></li>
+                                    <ul>
+                                        <li>从追踪数据中提取服务调用关系，构建服务依赖图</li>
+                                        <li>节点表示服务，边表示调用关系，权重表示调用频率</li>
+                                        <li>对每个节点添加服务指标和性能属性作为特征</li>
+                                    </ul>
+                                    <li><strong>GNN架构设计：</strong></li>
+                                    <ul>
+                                        <li>消息传递层：聚合邻居节点特征和边特征</li>
+                                        <li>更新函数：结合当前节点表示和消息更新节点状态</li>
+                                        <li>多层叠加：捕获多跳依赖关系</li>
+                                        <li>注意力机制：区分不同邻居节点的重要性</li>
+                                    </ul>
+                                    <li><strong>训练与推理：</strong></li>
+                                    <ul>
+                                        <li>利用历史根因标记数据进行监督训练</li>
+                                        <li>损失函数结合节点分类损失和图结构保持损失</li>
+                                        <li>推理时计算节点异常得分，排序确定根因服务</li>
+                                    </ul>
+                                </ul>
                                 <p><strong>技术价值：</strong>能有效整合节点特征和图结构信息，适合处理复杂依赖关系</p>
                             </div>
                         </div>
@@ -195,6 +325,28 @@
                             <div class="tech-details">
                                 <p><strong>研究动机：</strong>微服务系统具有天然的层次结构，需要区分层内和层间关系</p>
                                 <p><strong>代表工作：</strong>REASON(2023)使用层次化GNN建模层内和层间非线性因果关系</p>
+                                <p><strong>技术实现细节：</strong></p>
+                                <ul>
+                                    <li><strong>层次化图构建：</strong></li>
+                                    <ul>
+                                        <li>构建双层级依赖图：宿主机层和容器服务层</li>
+                                        <li>设计层内关系：捕捉同一层级内组件的因果依赖</li>
+                                        <li>设计层间关系：表示跨层级组件间的宿主关系</li>
+                                    </ul>
+                                    <li><strong>异构GNN模型：</strong></li>
+                                    <ul>
+                                        <li>针对不同类型节点设计特定参数矩阵</li>
+                                        <li>设计层内传播规则：基于图注意力网络(GAT)</li>
+                                        <li>设计层间传播规则：使用特殊门控机制控制信息流</li>
+                                        <li>信息聚合策略：自适应融合不同层级特征</li>
+                                    </ul>
+                                    <li><strong>根因定位算法：</strong></li>
+                                    <ul>
+                                        <li>异常传播模拟：通过学习到的图结构模拟故障传播</li>
+                                        <li>分层根因定位：先确定异常宿主机，再定位容器服务</li>
+                                        <li>因果得分计算：结合拓扑结构和节点异常状态</li>
+                                    </ul>
+                                </ul>
                                 <p><strong>为什么创新：</strong>专门设计的网络结构能更好地反映微服务系统的层次依赖特性，提高建模精度</p>
                             </div>
                         </div>
@@ -207,8 +359,119 @@
                                     <li>TraceVAE(2023)：引入双变量图变分自编码器，处理结构和时间消耗两类异常</li>
                                     <li>Sage(2021)：使用图形化变分自编码器进行反事实模拟</li>
                                 </ul>
+                                <p><strong>技术实现细节：</strong></p>
+                                <ul>
+                                    <li><strong>TraceVAE实现机制：</strong></li>
+                                    <ul>
+                                        <li>图编码设计：使用图卷积网络将追踪拓扑编码为潜变量分布</li>
+                                        <li>时间编码设计：分布式编码器将时间序列映射为另一组潜变量</li>
+                                        <li>双重解码器：同时重构图结构和时间模式</li>
+                                        <li>损失函数：结合结构重建损失、时间重建损失和KL散度</li>
+                                        <li>异常检测：计算两类重建误差，大于阈值判定为异常</li>
+                                    </ul>
+                                    <li><strong>Sage反事实模拟实现：</strong></li>
+                                    <ul>
+                                        <li>图结构编码：使用归一化边矩阵和节点特征</li>
+                                        <li>因果图学习：基于观察数据学习组件间潜在因果关系</li>
+                                        <li>反事实生成：在潜空间进行干预，生成假设场景</li>
+                                        <li>干预效果评估：计算干预前后图状态差异，评估根因候选</li>
+                                    </ul>
+                                </ul>
                                 <p><strong>技术突破：</strong>能在保持图结构的同时学习节点的潜在表示，更好地捕捉正常模式下的多维依赖</p>
                             </div>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">图神经网络演进时间线</h5>
+                            <div class="evolution-chart">
+                                <div class="evolution-timeline">
+                                    <div class="evolution-point">
+                                        <span class="evolution-marker"></span>
+                                        <span class="evolution-label">基础GCN<br>(2017)</span>
+                                    </div>
+                                    <div class="evolution-point">
+                                        <span class="evolution-marker"></span>
+                                        <span class="evolution-label">GNN在RCA中首次应用<br>(2021)</span>
+                                    </div>
+                                    <div class="evolution-point">
+                                        <span class="evolution-marker"></span>
+                                        <span class="evolution-label">层次化GNN<br>(2022)</span>
+                                    </div>
+                                    <div class="evolution-point">
+                                        <span class="evolution-marker"></span>
+                                        <span class="evolution-label">图变分自编码器<br>(2023)</span>
+                                    </div>
+                                    <div class="evolution-point">
+                                        <span class="evolution-marker"></span>
+                                        <span class="evolution-label">图神经网络+LLM融合<br>(2024)</span>
+                                    </div>
+                                </div>
+                                <p class="text-center mt-3">图神经网络从简单拓扑关系建模到复杂表征学习的进化路线</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">图神经网络与传统深度学习方法对比</h5>
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>对比维度</th>
+                                        <th>图神经网络</th>
+                                        <th>传统深度学习</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>处理图结构数据</td>
+                                        <td>原生支持，保留拓扑关系</td>
+                                        <td>需转换为向量，损失结构信息</td>
+                                    </tr>
+                                    <tr>
+                                        <td>微服务依赖建模</td>
+                                        <td>直接建模组件间关系</td>
+                                        <td>难以直接表达组件依赖</td>
+                                    </tr>
+                                    <tr>
+                                        <td>信息传递机制</td>
+                                        <td>消息传递实现节点间通信</td>
+                                        <td>缺乏直接的关系传递机制</td>
+                                    </tr>
+                                    <tr>
+                                        <td>对非规则数据处理</td>
+                                        <td>适合处理非欧几里得结构</td>
+                                        <td>主要设计用于网格数据</td>
+                                    </tr>
+                                    <tr>
+                                        <td>多层次关系建模</td>
+                                        <td>可表达层次化依赖结构</td>
+                                        <td>层次表达能力有限</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="features-comparison mt-4">
+                        <div class="feature-card strength">
+                            <h5>图神经网络技术突破</h5>
+                            <ul>
+                                <li>实现了节点特征与拓扑结构的统一学习</li>
+                                <li>消息传递机制有效模拟故障传播路径</li>
+                                <li>能够直接在原始依赖图上进行因果推断</li>
+                                <li>通过层次结构建模解决复杂系统依赖问题</li>
+                                <li>图变分自编码器融合结构和特征异常检测</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card neutral">
+                            <h5>应用难点与解决方案</h5>
+                            <ul>
+                                <li><strong>计算复杂度高：</strong>采用图采样和稀疏表示优化</li>
+                                <li><strong>依赖图构建困难：</strong>结合追踪数据自动生成依赖图</li>
+                                <li><strong>训练不稳定：</strong>设计专用的正则化和归一化技术</li>
+                                <li><strong>异构图处理：</strong>采用元路径和关系注意力机制</li>
+                                <li><strong>动态演化建模：</strong>引入时间感知的图演化模块</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -229,9 +492,133 @@
                             <div class="tech-details">
                                 <p><strong>研究动机：</strong>单一数据源信息不完整，需要整合多源数据</p>
                                 <p><strong>代表工作：</strong>Pdiagnose(2021)结合指标、追踪和日志进行综合分析</p>
+                                <p><strong>技术实现细节：</strong></p>
+                                <ul>
+                                    <li><strong>多模态数据处理：</strong></li>
+                                    <ul>
+                                        <li>指标数据：提取系统和应用级性能指标，进行归一化和去噪</li>
+                                        <li>追踪数据：构建服务调用图，提取时延和拓扑特征</li>
+                                        <li>日志数据：使用模板提取进行结构化，构建日志模式库</li>
+                                    </ul>
+                                    <li><strong>单模态分析组件：</strong></li>
+                                    <ul>
+                                        <li>指标异常检测器：基于时序预测模型识别异常指标</li>
+                                        <li>追踪分析器：识别异常调用路径和服务节点</li>
+                                        <li>日志模式分析器：提取异常日志及对应服务</li>
+                                    </ul>
+                                    <li><strong>融合决策机制：</strong></li>
+                                    <ul>
+                                        <li>加权投票算法：各模态对服务异常程度投票</li>
+                                        <li>证据累积：将不同模态证据累积形成总体判断</li>
+                                        <li>置信度评估：基于历史准确率分配模态权重</li>
+                                    </ul>
+                                </ul>
                                 <p><strong>技术路线：</strong>采用投票机制整合不同数据源的分析结果</p>
                                 <p><strong>局限性：</strong>简单融合策略难以捕捉不同模态数据间的深层关联</p>
                             </div>
+                        </div>
+                        <div class="tech-item">
+                            <h4>基于注意力机制的多模态融合(2022)</h4>
+                            <div class="tech-details">
+                                <p><strong>研究动机：</strong>需要动态评估不同数据源的重要性和可靠性</p>
+                                <p><strong>代表工作：</strong>MULAN引入KPI感知注意力机制评估模态可靠性</p>
+                                <p><strong>技术实现细节：</strong></p>
+                                <ul>
+                                    <li><strong>模态特征提取：</strong></li>
+                                    <ul>
+                                        <li>设计特定编码器分别处理指标、日志和追踪数据</li>
+                                        <li>指标编码：使用时序卷积网络捕捉时间特征</li>
+                                        <li>日志编码：结合词嵌入和LSTM处理日志序列</li>
+                                        <li>追踪编码：使用图神经网络处理服务调用图</li>
+                                    </ul>
+                                    <li><strong>注意力融合机制：</strong></li>
+                                    <ul>
+                                        <li>KPI感知注意力：根据KPI异常程度调整模态权重</li>
+                                        <li>自注意力层：捕捉同一模态内的关键信息</li>
+                                        <li>交叉注意力层：学习不同模态间的相互影响</li>
+                                        <li>动态权重分配：故障不同阶段调整模态重要性</li>
+                                    </ul>
+                                    <li><strong>根因定位流程：</strong></li>
+                                    <ul>
+                                        <li>多模态特征融合：生成统一的服务状态表示</li>
+                                        <li>异常传播模拟：基于融合特征推断故障传播路径</li>
+                                        <li>根因排序：结合异常得分和因果性分析排序</li>
+                                    </ul>
+                                </ul>
+                                <p><strong>为什么创新：</strong>注意力机制能根据当前故障情景动态调整对不同数据源的依赖程度</p>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <h4>端到端多模态学习架构(2023)</h4>
+                            <div class="tech-details">
+                                <p><strong>研究动机：</strong>需要统一的端到端模型同时处理多源数据</p>
+                                <p><strong>代表工作：</strong></p>
+                                <ul>
+                                    <li>DiagFusion(2023)使用GNN在依赖图上识别根因实例和故障类型</li>
+                                    <li>CloudRCA使用层次化贝叶斯网络从多源数据推断根因</li>
+                                </ul>
+                                <p><strong>技术实现细节：</strong></p>
+                                <ul>
+                                    <li><strong>DiagFusion实现机制：</strong></li>
+                                    <ul>
+                                        <li>异构图构建：集成指标节点、日志节点和服务节点</li>
+                                        <li>关系类型设计：定义不同类型节点间的语义关系</li>
+                                        <li>异构图神经网络：为不同类型节点和边设计参数矩阵</li>
+                                        <li>多任务学习：同时进行根因定位和故障类型识别</li>
+                                        <li>因果增强损失：引入因果约束提高推理准确性</li>
+                                    </ul>
+                                    <li><strong>CloudRCA实现机制：</strong></li>
+                                    <ul>
+                                        <li>多层贝叶斯网络：构建系统层、应用层和指标层</li>
+                                        <li>结构学习：从历史数据学习节点间的条件依赖</li>
+                                        <li>多模态证据整合：不同数据源作为贝叶斯网络观察变量</li>
+                                        <li>概率推理：给定观察证据，计算每个节点的后验概率</li>
+                                        <li>根因定位：选择后验概率最高的系统或应用节点</li>
+                                    </ul>
+                                </ul>
+                                <p><strong>技术价值：</strong>端到端学习减少信息损失，融合方法能更好地捕捉跨模态依赖关系</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">多模态数据融合方法对比</h5>
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>融合策略</th>
+                                        <th>代表工作</th>
+                                        <th>优势</th>
+                                        <th>局限性</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>早期融合(特征级)</td>
+                                        <td>简单特征拼接</td>
+                                        <td>实现简单，计算开销小</td>
+                                        <td>可能忽略模态间的深层交互</td>
+                                    </tr>
+                                    <tr>
+                                        <td>中期融合(交互级)</td>
+                                        <td>注意力机制(MULAN)</td>
+                                        <td>能捕捉模态间依赖关系</td>
+                                        <td>设计复杂，需精心调整</td>
+                                    </tr>
+                                    <tr>
+                                        <td>晚期融合(决策级)</td>
+                                        <td>Pdiagnose投票机制</td>
+                                        <td>模态独立处理，更具鲁棒性</td>
+                                        <td>可能错失模态间协同信息</td>
+                                    </tr>
+                                    <tr>
+                                        <td>统一端到端融合</td>
+                                        <td>DiagFusion</td>
+                                        <td>一体化学习减少信息损失</td>
+                                        <td>需大量多模态训练数据</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -280,6 +667,121 @@
                                 <p><strong>技术突破：</strong>代理系统能够执行整个诊断流程，包括数据收集、问题分析和解决方案生成</p>
                                 <p><strong>未来方向：</strong>与专业工具和现有监控系统深度集成，进一步增强自主诊断能力</p>
                             </div>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">LLM在RCA中的技术实现对比</h5>
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>技术路线</th>
+                                        <th>代表工作</th>
+                                        <th>核心实现机制</th>
+                                        <th>优势</th>
+                                        <th>局限性</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>领域微调</td>
+                                        <td>Ahmed等(2023)</td>
+                                        <td>使用根因分析领域数据集进行指令微调，特别关注故障描述到根因映射</td>
+                                        <td>可针对特定领域优化，效果好</td>
+                                        <td>训练数据收集困难，成本高</td>
+                                    </tr>
+                                    <tr>
+                                        <td>检索增强生成(RAG)</td>
+                                        <td>RCACopilot(2023)</td>
+                                        <td>建立知识库索引，根据当前故障实时检索相关历史案例，结合到LLM提示中</td>
+                                        <td>无需微调，实时更新知识库</td>
+                                        <td>检索准确性影响最终结果</td>
+                                    </tr>
+                                    <tr>
+                                        <td>思维链推理(CoT)</td>
+                                        <td>PACE(2023)</td>
+                                        <td>引导LLM按照专家诊断步骤进行推理，每一步都有明确的思考过程</td>
+                                        <td>模拟专家分析流程，可解释性强</td>
+                                        <td>提示词工程复杂，幻觉风险高</td>
+                                    </tr>
+                                    <tr>
+                                        <td>工具增强代理</td>
+                                        <td>RCAgent(2023)</td>
+                                        <td>构建LLM控制的代理系统，集成多种诊断工具，通过ReAct框架实现推理-行动-观察循环</td>
+                                        <td>能动态收集信息，自主决策</td>
+                                        <td>系统复杂度高，交互延迟大</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">LLM与传统RCA方法的技术对比</h5>
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>能力维度</th>
+                                        <th>LLM方法</th>
+                                        <th>传统ML/DL方法</th>
+                                        <th>人工专家</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>领域知识应用</td>
+                                        <td>预训练包含大量知识，可通过提示激活</td>
+                                        <td>仅限于训练数据中的模式</td>
+                                        <td>丰富但依赖个人经验</td>
+                                    </tr>
+                                    <tr>
+                                        <td>分析灵活性</td>
+                                        <td>能处理不同类型故障和新场景</td>
+                                        <td>仅对训练过的故障类型有效</td>
+                                        <td>灵活但受限于个人能力</td>
+                                    </tr>
+                                    <tr>
+                                        <td>自然语言理解</td>
+                                        <td>原生支持非结构化文本处理</td>
+                                        <td>需要特殊处理管道转换</td>
+                                        <td>天然具备</td>
+                                    </tr>
+                                    <tr>
+                                        <td>数据处理要求</td>
+                                        <td>可处理模糊、非完整信息</td>
+                                        <td>需要大量高质量结构化数据</td>
+                                        <td>可处理不完整信息</td>
+                                    </tr>
+                                    <tr>
+                                        <td>解释生成能力</td>
+                                        <td>能生成详细、结构化的分析报告</td>
+                                        <td>通常只提供简单预测结果</td>
+                                        <td>能提供详细解释但效率低</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="features-comparison mt-4">
+                        <div class="feature-card strength">
+                            <h5>LLM方法实现细节与优势</h5>
+                            <ul>
+                                <li><strong>提示工程技术：</strong>精心设计包含系统状态、上下文和历史事件的结构化提示，引导LLM关注关键信息</li>
+                                <li><strong>多轮对话机制：</strong>通过多轮交互逐步缩小问题范围，类似专家诊断过程的追问式分析</li>
+                                <li><strong>工具调用框架：</strong>配置LLM可调用的诊断工具集，如日志分析器、指标查询器和配置检查器</li>
+                                <li><strong>历史知识库索引：</strong>使用向量嵌入技术构建事件库，支持语义相似性搜索以找到历史类似案例</li>
+                                <li><strong>置信度评估机制：</strong>通过多种策略评估生成结果的可靠性，如反事实检验和一致性检查</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card weakness">
+                            <h5>当前实现挑战与前沿解决方案</h5>
+                            <ul>
+                                <li><strong>知识时效性问题：</strong>结合实时知识库更新和定期模型微调解决知识过时问题</li>
+                                <li><strong>幻觉产生控制：</strong>通过事实锚定和自我验证机制减少无依据的推断</li>
+                                <li><strong>上下文窗口限制：</strong>使用分层摘要和关键信息提取减轻上下文长度限制影响</li>
+                                <li><strong>专业术语理解：</strong>针对IT和云基础设施专业术语的特殊微调和词汇增强</li>
+                                <li><strong>推理效率提升：</strong>开发轻量级推理框架，减少延迟，提高实时诊断能力</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
