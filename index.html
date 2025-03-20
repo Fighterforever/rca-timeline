@@ -11,32 +11,38 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">RCA发展历程</a>
+            <a class="navbar-brand" href="#">RCA方法系统化分析</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#early">早期方法</a>
+                        <a class="nav-link" href="#overview">方法概览</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#graph">图结构应用</a>
+                        <a class="nav-link" href="#statistical">统计方法</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#deep">深度学习</a>
+                        <a class="nav-link" href="#graph">图理论方法</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#gnn">图神经网络</a>
+                        <a class="nav-link" href="#ml">机器学习方法</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#multimodal">多模态融合</a>
+                        <a class="nav-link" href="#deep">深度学习方法</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#llm">LLM时代</a>
+                        <a class="nav-link" href="#gnn">图神经网络方法</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#trends">发展趋势</a>
+                        <a class="nav-link" href="#multimodal">多模态融合方法</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#llm">LLM方法</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#comparison">横向对比</a>
                     </li>
                 </ul>
             </div>
@@ -44,6 +50,339 @@
     </nav>
 
     <div class="container mt-5 pt-5">
+        <!-- 方法概览 -->
+        <section id="overview" class="mb-5">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">根因分析(RCA)方法全景图</h2>
+                    <p class="card-text">根因分析(Root Cause Analysis, RCA)方法随着IT系统复杂度增加和AI技术发展而不断演进。以下展示了从早期统计方法到现代LLM方法的完整发展路径。</p>
+                    
+                    <div class="evolution-chart">
+                        <h4 class="text-center mb-3">RCA方法演进全景图</h4>
+                        <div class="evolution-timeline">
+                            <div class="evolution-point">
+                                <span class="evolution-marker"></span>
+                                <span class="evolution-label">统计方法<br>(2000-2010)</span>
+                            </div>
+                            <div class="evolution-point">
+                                <span class="evolution-marker"></span>
+                                <span class="evolution-label">图理论方法<br>(2010-2016)</span>
+                            </div>
+                            <div class="evolution-point">
+                                <span class="evolution-marker"></span>
+                                <span class="evolution-label">机器学习方法<br>(2012-2018)</span>
+                            </div>
+                            <div class="evolution-point">
+                                <span class="evolution-marker"></span>
+                                <span class="evolution-label">深度学习方法<br>(2019-2021)</span>
+                            </div>
+                            <div class="evolution-point">
+                                <span class="evolution-marker"></span>
+                                <span class="evolution-label">LLM方法<br>(2023-至今)</span>
+                            </div>
+                        </div>
+                        <p class="text-center mt-3">根因分析方法从传统统计分析到现代大语言模型的技术演进路线</p>
+                    </div>
+                    
+                    <div class="content-guide mt-4">
+                        <h4>内容结构说明</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="content-structure-card">
+                                    <h5><i class="fas fa-sitemap"></i> 标准化分析框架</h5>
+                                    <p>每种方法类别都使用统一的分析框架进行展示：</p>
+                                    <ul>
+                                        <li><strong>方法概述</strong>：定义、范围和历史演进</li>
+                                        <li><strong>代表流程图</strong>：标准工作流程和关键步骤</li>
+                                        <li><strong>输入输出规范</strong>：数据类型、格式和转换过程</li>
+                                        <li><strong>比较分析</strong>：同类方法对比、优缺点分析</li>
+                                        <li><strong>代表性工作</strong>：具体实现和性能评估</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="content-structure-card">
+                                    <h5><i class="fas fa-exchange-alt"></i> 横向对比区域</h5>
+                                    <p>提供不同方法类别间的系统化对比：</p>
+                                    <ul>
+                                        <li><strong>跨类别对比表</strong>：统一维度全面比较</li>
+                                        <li><strong>能力雷达图</strong>：多维度能力可视化</li>
+                                        <li><strong>决策指南</strong>：基于场景的方法选择建议</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 统计方法部分 -->
+        <section id="statistical" class="method-section mb-5">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">统计方法</h2>
+                </div>
+                <div class="card-body">
+                    <!-- 方法概述区域 -->
+                    <div class="method-overview mb-4">
+                        <h3>方法概述</h3>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="overview-card">
+                                    <h5>定义与范围</h5>
+                                    <p>统计方法是基于数理统计原理，通过分析系统观测数据的统计特性来推断潜在根因的方法。主要包括相关分析、回归分析、聚类分析和假设检验等技术。</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="overview-card">
+                                    <h5>核心原理</h5>
+                                    <p>利用统计学中的概率分布、假设检验、相关分析等理论，基于观测数据的统计特性，识别异常点、建立变量间相关关系，并通过统计推断确定根因。</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="overview-card">
+                                    <h5>历史演进</h5>
+                                    <p>从20世纪初的质量控制到2010年代的IT系统监控，统计方法一直是RCA的基础工具。早期主要用于制造业质量管理，后扩展到IT领域。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 代表流程图模块 -->
+                    <div class="process-flow mb-4">
+                        <h3>代表流程图</h3>
+                        <div class="flow-chart-container">
+                            <div class="flow-chart">
+                                <div class="flow-step">
+                                    <div class="flow-icon">1</div>
+                                    <div class="flow-text">时序数据收集</div>
+                                </div>
+                                <div class="flow-arrow">→</div>
+                                <div class="flow-step">
+                                    <div class="flow-icon">2</div>
+                                    <div class="flow-text">数据预处理</div>
+                                </div>
+                                <div class="flow-arrow">→</div>
+                                <div class="flow-step">
+                                    <div class="flow-icon">3</div>
+                                    <div class="flow-text">异常检测</div>
+                                </div>
+                                <div class="flow-arrow">→</div>
+                                <div class="flow-step">
+                                    <div class="flow-icon">4</div>
+                                    <div class="flow-text">相关性分析</div>
+                                </div>
+                                <div class="flow-arrow">→</div>
+                                <div class="flow-step">
+                                    <div class="flow-icon">5</div>
+                                    <div class="flow-text">假设测试</div>
+                                </div>
+                                <div class="flow-arrow">→</div>
+                                <div class="flow-step">
+                                    <div class="flow-icon">6</div>
+                                    <div class="flow-text">根因候选排序</div>
+                                </div>
+                            </div>
+                            <div class="flow-description mt-3">
+                                <p><strong>关键步骤说明：</strong></p>
+                                <ol>
+                                    <li><strong>时序数据收集</strong>：从监控系统获取KPI指标、日志和事件数据</li>
+                                    <li><strong>数据预处理</strong>：去噪、归一化、缺失值处理和季节性调整</li>
+                                    <li><strong>异常检测</strong>：使用控制图、Z-score或移动平均等检测异常点</li>
+                                    <li><strong>相关性分析</strong>：计算指标间皮尔逊相关系数或时间滞后相关</li>
+                                    <li><strong>假设测试</strong>：使用t检验或χ²检验验证假设的根因关系</li>
+                                    <li><strong>根因候选排序</strong>：基于相关性和假设检验结果排序可能根因</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 输入输出规范模块 -->
+                    <div class="io-specification mb-4">
+                        <h3>输入输出规范</h3>
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>输入数据类型</th>
+                                    <th>数据格式要求</th>
+                                    <th>预处理步骤</th>
+                                    <th>输出类型</th>
+                                    <th>输出解释</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <ul>
+                                            <li>时序指标数据</li>
+                                            <li>系统日志事件</li>
+                                            <li>警报记录</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li>结构化数值数据</li>
+                                            <li>时间戳+指标值</li>
+                                            <li>同步采样时间序列</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li>归一化/标准化</li>
+                                            <li>异常值检测与处理</li>
+                                            <li>缺失值插补</li>
+                                            <li>季节性调整</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li>相关系数矩阵</li>
+                                            <li>p值和置信区间</li>
+                                            <li>根因候选排名</li>
+                                            <li>统计显著性报告</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li>直接可解释结果</li>
+                                            <li>低复杂度解释</li>
+                                            <li>统计证据支持</li>
+                                            <li>可量化的置信度</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="io-transformation mt-3">
+                            <h5>输入输出转换示例</h5>
+                            <p>输入指标A和指标B的时序数据 → 计算皮尔逊相关系数(r=0.87) → 计算时间滞后相关(指标A领先指标B 5分钟，r=0.92) → 执行格兰杰因果检验(p&lt;0.01) → 输出"指标A变化导致指标B异常，置信度95%"</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 比较分析模块 -->
+                    <div class="comparison-analysis mb-4">
+                        <h3>比较分析</h3>
+                        
+                        <h5>同类方法对比</h5>
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>统计方法</th>
+                                    <th>适用场景</th>
+                                    <th>计算复杂度</th>
+                                    <th>实现难度</th>
+                                    <th>准确性</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>相关性分析</td>
+                                    <td>直接相关的指标型故障</td>
+                                    <td>低(O(n²))</td>
+                                    <td>低</td>
+                                    <td>中等，易受虚假相关影响</td>
+                                </tr>
+                                <tr>
+                                    <td>回归分析</td>
+                                    <td>线性关系明确的系统</td>
+                                    <td>中(O(n³))</td>
+                                    <td>中</td>
+                                    <td>对应线性关系较准</td>
+                                </tr>
+                                <tr>
+                                    <td>假设检验</td>
+                                    <td>验证已有根因假设</td>
+                                    <td>低(O(n))</td>
+                                    <td>中</td>
+                                    <td>依赖假设质量</td>
+                                </tr>
+                                <tr>
+                                    <td>时间序列分析</td>
+                                    <td>周期性故障和趋势分析</td>
+                                    <td>高(O(n²log n))</td>
+                                    <td>高</td>
+                                    <td>对时序依赖故障准确</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="features-comparison mt-4">
+                            <div class="feature-card strength">
+                                <h5>统计方法优势</h5>
+                                <ul>
+                                    <li>计算效率高，适合实时分析</li>
+                                    <li>理论基础扎实，结果可解释性强</li>
+                                    <li>对数据质量要求相对较低</li>
+                                    <li>实现简单，易于集成到现有系统</li>
+                                    <li>无需大量标记数据或训练过程</li>
+                                </ul>
+                            </div>
+                            <div class="feature-card weakness">
+                                <h5>统计方法局限性</h5>
+                                <ul>
+                                    <li>难以捕捉复杂非线性关系</li>
+                                    <li>对新型故障模式适应性差</li>
+                                    <li>难以处理高维稀疏数据</li>
+                                    <li>相关性不等于因果性，可能误导</li>
+                                    <li>依赖领域专家设定阈值和参数</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="application-scenarios mt-4">
+                            <h5>适用场景说明</h5>
+                            <ul>
+                                <li><strong>最适合</strong>：简单系统监控、指标间关系明确的场景、初步筛选根因候选</li>
+                                <li><strong>次适合</strong>：中等复杂度系统、需要实时分析的场景、有明确阈值的监控</li>
+                                <li><strong>不适合</strong>：高度复杂的微服务架构、非线性依赖严重的系统、无历史故障数据的新系统</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- 代表性工作展示 -->
+                    <div class="representative-works">
+                        <h3>代表性工作</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="work-card">
+                                    <h5>Pinpoint (2002)</h5>
+                                    <div class="work-details">
+                                        <p><strong>核心技术</strong>：基于统计相关性的故障定位</p>
+                                        <p><strong>实现细节</strong>：</p>
+                                        <ul>
+                                            <li>收集客户请求成功/失败数据</li>
+                                            <li>计算组件与故障间点双列相关系数</li>
+                                            <li>利用假设检验排除随机相关</li>
+                                            <li>对组件根据相关强度排序</li>
+                                        </ul>
+                                        <p><strong>性能评估</strong>：在Microservices-Shop测试集上F1分数达0.78，平均定位时间&lt;10秒</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="work-card">
+                                    <h5>时间滞后相关分析(TLCA, 2010)</h5>
+                                    <div class="work-details">
+                                        <p><strong>核心技术</strong>：基于时间序列滞后相关的因果推断</p>
+                                        <p><strong>实现细节</strong>：</p>
+                                        <ul>
+                                            <li>计算不同时间窗口下的指标相关性</li>
+                                            <li>寻找最大相关系数对应的时间滞后</li>
+                                            <li>构建指标间的时序依赖图</li>
+                                            <li>根据依赖图和滞后时间推断根因</li>
+                                        </ul>
+                                        <p><strong>性能评估</strong>：在电信网络监控数据集上准确率达85%，较传统相关分析提升20%</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <div class="timeline">
             <div class="timeline-item" id="early">
                 <div class="timeline-content">
@@ -619,12 +958,506 @@
                                     </tr>
                                 </tbody>
                             </table>
+<!-- 横向对比部分 -->
+<section id="comparison" class="method-section mb-5">
+    <div class="card">
+        <div class="card-header bg-info text-white">
+            <h2 class="mb-0">RCA方法横向对比</h2>
+        </div>
+        <div class="card-body">
+            <p class="lead">各类根因分析方法在不同维度上具有独特的特性和适用场景。下面从多个角度对比这些方法的优缺点和适用性。</p>
+            
+            <!-- 方法对比表 -->
+            <div class="mb-4">
+                <h3>方法综合对比</h3>
+                <div class="table-responsive">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>对比维度</th>
+                                <th>统计方法</th>
+                                <th>图理论方法</th>
+                                <th>深度学习方法</th>
+                                <th>图神经网络方法</th>
+                                <th>多模态融合方法</th>
+                                <th>LLM方法</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>计算效率</td>
+                                <td>⭐⭐⭐⭐⭐</td>
+                                <td>⭐⭐⭐⭐</td>
+                                <td>⭐⭐</td>
+                                <td>⭐</td>
+                                <td>⭐</td>
+                                <td>⭐⭐</td>
+                            </tr>
+                            <tr>
+                                <td>精确度</td>
+                                <td>⭐⭐</td>
+                                <td>⭐⭐⭐</td>
+                                <td>⭐⭐⭐⭐</td>
+                                <td>⭐⭐⭐⭐⭐</td>
+                                <td>⭐⭐⭐⭐⭐</td>
+                                <td>⭐⭐⭐⭐</td>
+                            </tr>
+                            <tr>
+                                <td>可解释性</td>
+                                <td>⭐⭐⭐⭐⭐</td>
+                                <td>⭐⭐⭐⭐</td>
+                                <td>⭐⭐</td>
+                                <td>⭐⭐⭐</td>
+                                <td>⭐⭐</td>
+                                <td>⭐⭐⭐⭐</td>
+                            </tr>
+                            <tr>
+                                <td>实现难度</td>
+                                <td>⭐</td>
+                                <td>⭐⭐</td>
+                                <td>⭐⭐⭐⭐</td>
+                                <td>⭐⭐⭐⭐⭐</td>
+                                <td>⭐⭐⭐⭐⭐</td>
+                                <td>⭐⭐⭐</td>
+                            </tr>
+                            <tr>
+                                <td>数据依赖性</td>
+                                <td>⭐⭐</td>
+                                <td>⭐⭐⭐</td>
+                                <td>⭐⭐⭐⭐⭐</td>
+                                <td>⭐⭐⭐⭐</td>
+                                <td>⭐⭐⭐⭐⭐</td>
+                                <td>⭐⭐⭐</td>
+                            </tr>
+                            <tr>
+                                <td>领域知识需求</td>
+                                <td>⭐⭐⭐⭐</td>
+                                <td>⭐⭐⭐⭐</td>
+                                <td>⭐⭐⭐</td>
+                                <td>⭐⭐⭐</td>
+                                <td>⭐⭐⭐</td>
+                                <td>⭐⭐</td>
+                            </tr>
+                            <tr>
+                                <td>适应复杂系统</td>
+                                <td>⭐</td>
+                                <td>⭐⭐⭐</td>
+                                <td>⭐⭐⭐⭐</td>
+                                <td>⭐⭐⭐⭐⭐</td>
+                                <td>⭐⭐⭐⭐⭐</td>
+                                <td>⭐⭐⭐⭐</td>
+                            </tr>
+                            <tr>
+                                <td>新型故障适应</td>
+                                <td>⭐</td>
+                                <td>⭐⭐</td>
+                                <td>⭐⭐⭐</td>
+                                <td>⭐⭐⭐</td>
+                                <td>⭐⭐⭐⭐</td>
+                                <td>⭐⭐⭐⭐⭐</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-muted mt-2">⭐评级说明：⭐越多表示在该维度表现越好</p>
+            </div>
+            
+            <!-- 方法选择指南 -->
+            <div class="mb-4">
+                <h3>场景导向的方法选择指南</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="content-structure-card">
+                            <h5><i class="fas fa-server mr-2"></i>大规模微服务系统</h5>
+                            <p><strong>推荐方法：</strong> 图神经网络方法 + 多模态融合方法</p>
+                            <p><strong>推荐理由：</strong></p>
+                            <ul>
+                                <li>能自然建模服务间复杂依赖关系</li>
+                                <li>能有效处理异构数据（指标、日志、追踪）</li>
+                                <li>可捕捉故障传播路径和影响范围</li>
+                                <li>处理海量节点和边的能力</li>
+                            </ul>
+                            <p><strong>典型案例：</strong> REASON (2023), MicroHECL (2023)</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="content-structure-card">
+                            <h5><i class="fas fa-chart-line mr-2"></i>指标异常明显的系统</h5>
+                            <p><strong>推荐方法：</strong> 统计方法 + 深度学习方法</p>
+                            <p><strong>推荐理由：</strong></p>
+                            <ul>
+                                <li>统计方法提供快速初筛和基线</li>
+                                <li>深度学习处理复杂非线性关系</li>
+                                <li>可从KPI指标中学习异常模式</li>
+                                <li>较低的拓扑依赖性</li>
+                            </ul>
+                            <p><strong>典型案例：</strong> DéjàVu (2021), CSL (2020)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <div class="content-structure-card">
+                            <h5><i class="fas fa-database mr-2"></i>历史数据稀缺的新系统</h5>
+                            <p><strong>推荐方法：</strong> LLM方法 + 图理论方法</p>
+                            <p><strong>推荐理由：</strong></p>
+                            <ul>
+                                <li>LLM可利用迁移学习和先验知识</li>
+                                <li>图理论方法依赖结构而非历史数据</li>
+                                <li>能处理非结构化文本数据</li>
+                                <li>适应未见过的故障类型</li>
+                            </ul>
+                            <p><strong>典型案例：</strong> RCATool (2023), MonitorRank (2018)</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="content-structure-card">
+                            <h5><i class="fas fa-project-diagram mr-2"></i>复杂依赖关系的系统</h5>
+                            <p><strong>推荐方法：</strong> 图神经网络方法 + 因果推断方法</p>
+                            <p><strong>推荐理由：</strong></p>
+                            <ul>
+                                <li>精确建模组件间的依赖链路</li>
+                                <li>区分相关性和因果性</li>
+                                <li>支持反事实推理和干预分析</li>
+                                <li>处理复杂拓扑结构的能力</li>
+                            </ul>
+                            <p><strong>典型案例：</strong> MicroCause (2022), CauseInfer (2023)</p>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="timeline-item" id="llm">
+            
+            <!-- 技术发展趋势 -->
+            <div class="mb-4">
+                <h3>技术发展趋势与融合方向</h3>
+                <div class="io-transformation p-3">
+                    <ol>
+                        <li><strong>多技术融合趋势</strong>：单一技术难以应对所有场景，未来将更多看到多种技术的组合使用，如GNN+LLM、统计方法+深度学习等</li>
+                        <li><strong>自监督学习增强</strong>：减少对标记数据的依赖，通过自监督预训练提高模型泛化能力</li>
+                        <li><strong>可解释性增强</strong>：深度学习和GNN方法将增加可解释性层，平衡准确性和可理解性</li>
+                        <li><strong>LLM赋能故障诊断</strong>：大模型将整合领域知识和运维经验，实现更智能的问题诊断</li>
+                        <li><strong>因果推断深化</strong>：从相关性分析向因果性分析转变，提高根因定位准确性</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- 能力雷达图（使用HTML/CSS模拟） -->
+            <div class="mb-4">
+                <h3>方法能力雷达图</h3>
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center">
+                        <p class="text-muted">此处放置方法能力雷达图，展示各类方法在不同维度上的性能比较。</p>
+                        <p>包括：精确度、计算效率、可解释性、可扩展性、适应性和实现难度等维度。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 
+<!-- 标准化图神经网络方法部分 -->
+<section id="gnn-method" class="method-section mb-5">
+    <div class="card">
+        <div class="card-header bg-danger text-white">
+            <h2 class="mb-0">图神经网络方法</h2>
+        </div>
+        <div class="card-body">
+            <!-- 方法概述区域 -->
+            <div class="method-overview mb-4">
+                <h3>方法概述</h3>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="overview-card">
+                            <h5>定义与范围</h5>
+                            <p>图神经网络(GNN)方法是一类专门处理图结构数据的深度学习技术，通过消息传递机制同时学习节点特征和拓扑结构。在RCA中，GNN用于建模服务依赖关系和故障传播路径，更准确地定位根因节点。</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="overview-card">
+                            <h5>核心原理</h5>
+                            <p>GNN通过消息传递与聚合机制，在考虑图拓扑结构的同时更新节点表示。每个节点从邻居节点收集信息并更新自身状态，多轮迭代后节点表示融合了局部和全局结构信息，用于后续任务。</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="overview-card">
+                            <h5>历史演进</h5>
+                            <p>2021年起，GNN在RCA领域逐渐流行。早期应用基础GCN处理服务依赖图，后发展出层次化GNN处理多层级系统，近期发展出图变分自编码器进行反事实推理和因果建模。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 代表流程图模块 -->
+            <div class="process-flow mb-4">
+                <h3>代表流程图</h3>
+                <div class="flow-chart-container">
+                    <div class="flow-chart">
+                        <div class="flow-step">
+                            <div class="flow-icon">1</div>
+                            <div class="flow-text">服务依赖图构建</div>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">
+                            <div class="flow-icon">2</div>
+                            <div class="flow-text">节点特征提取</div>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">
+                            <div class="flow-icon">3</div>
+                            <div class="flow-text">GNN模型训练</div>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">
+                            <div class="flow-icon">4</div>
+                            <div class="flow-text">异常传播模拟</div>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">
+                            <div class="flow-icon">5</div>
+                            <div class="flow-text">因果得分计算</div>
+                        </div>
+                    </div>
+                    <div class="flow-description mt-3">
+                        <p><strong>关键步骤说明：</strong></p>
+                        <ol>
+                            <li><strong>服务依赖图构建</strong>：从追踪数据、日志或配置中提取服务调用关系，构建依赖图</li>
+                            <li><strong>节点特征提取</strong>：为每个服务节点提取指标、性能和状态特征，并融合时序信息</li>
+                            <li><strong>GNN模型训练</strong>：使用消息传递框架，训练GNN模型学习节点表示和异常传播规律</li>
+                            <li><strong>异常传播模拟</strong>：通过学习到的图结构，模拟异常状态在系统中的传播过程</li>
+                            <li><strong>因果得分计算</strong>：计算各节点作为根因的可能性得分，并生成排序列表</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 输入输出规范模块 -->
+            <div class="io-specification mb-4">
+                <h3>输入输出规范</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>输入数据类型</th>
+                            <th>数据格式要求</th>
+                            <th>预处理步骤</th>
+                            <th>输出类型</th>
+                            <th>输出解释</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <ul>
+                                    <li>服务调用追踪</li>
+                                    <li>服务依赖关系</li>
+                                    <li>服务指标数据</li>
+                                    <li>异常状态标记</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>图邻接矩阵</li>
+                                    <li>节点特征矩阵</li>
+                                    <li>边属性矩阵</li>
+                                    <li>异常状态向量</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>依赖图构建</li>
+                                    <li>特征标准化</li>
+                                    <li>图增强/子图采样</li>
+                                    <li>图结构规范化</li>
+                                    <li>多粒度图层次化</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>节点根因得分</li>
+                                    <li>因果传播路径</li>
+                                    <li>影响范围预测</li>
+                                    <li>异常严重程度</li>
+                                    <li>注意力权重图</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>结果可解释性中等</li>
+                                    <li>可通过注意力机制可视化</li>
+                                    <li>可展示关键传播路径</li>
+                                    <li>支持反事实解释</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="io-transformation mt-3">
+                    <h5>输入输出转换示例</h5>
+                    <p>输入服务调用追踪和微服务指标 → 构建服务依赖图并提取节点特征 → GNN学习节点表示和传播模式 → 模拟异常传播计算因果得分 → 输出"数据库服务是API延迟增加的根本原因，置信度93%，主要传播路径为DB→Cache→API"</p>
+                </div>
+            </div>
+            
+            <!-- 比较分析模块 -->
+            <div class="comparison-analysis mb-4">
+                <h3>比较分析</h3>
+                
+                <h5>同类方法对比</h5>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>GNN变种</th>
+                            <th>适用场景</th>
+                            <th>计算复杂度</th>
+                            <th>实现难度</th>
+                            <th>准确性</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>基础GCN</td>
+                            <td>简单服务拓扑结构</td>
+                            <td>中(O(|E|·d))</td>
+                            <td>中</td>
+                            <td>基础性能，处理同质图</td>
+                        </tr>
+                        <tr>
+                            <td>图注意力网络(GAT)</td>
+                            <td>需区分邻居重要性</td>
+                            <td>高(O(|V|·|N|·d))</td>
+                            <td>中高</td>
+                            <td>能自适应关注关键节点</td>
+                        </tr>
+                        <tr>
+                            <td>层次化GNN</td>
+                            <td>多层级微服务系统</td>
+                            <td>高(O(L·|E|·d))</td>
+                            <td>高</td>
+                            <td>捕捉层级依赖效果好</td>
+                        </tr>
+                        <tr>
+                            <td>图变分自编码器</td>
+                            <td>需进行因果推断</td>
+                            <td>很高(O(|V|²·d))</td>
+                            <td>很高</td>
+                            <td>支持反事实模拟，准确度高</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="features-comparison mt-4">
+                    <div class="feature-card strength">
+                        <h5>GNN方法优势</h5>
+                        <ul>
+                            <li>能直接处理图结构数据，保留拓扑关系</li>
+                            <li>自然建模微服务依赖和故障传播</li>
+                            <li>同时利用节点特征和结构信息</li>
+                            <li>适应复杂非欧几里得数据结构</li>
+                            <li>可整合时序信息和空间拓扑关系</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card weakness">
+                        <h5>GNN方法局限性</h5>
+                        <ul>
+                            <li>计算开销大，扩展性挑战</li>
+                            <li>依赖准确的依赖图构建</li>
+                            <li>过平滑问题限制多层堆叠</li>
+                            <li>实现复杂度高，调试困难</li>
+                            <li>需要专业知识设计适当结构</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="application-scenarios mt-4">
+                    <h5>适用场景说明</h5>
+                    <ul>
+                        <li><strong>最适合</strong>：大规模微服务架构、拓扑结构复杂、依赖关系明确、需要考虑故障传播</li>
+                        <li><strong>次适合</strong>：中等复杂度系统、有部分拓扑信息、需要结合多种特征</li>
+                        <li><strong>不适合</strong>：简单系统、拓扑结构不明确、计算资源受限、实时性要求极高</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 代表性工作展示 -->
+            <div class="representative-works">
+                <h3>代表性工作</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="work-card">
+                            <h5>Sleuth (2023)</h5>
+                            <div class="work-details">
+                                <p><strong>核心技术</strong>：基于GNN的微服务追踪因果分析</p>
+                                <p><strong>实现细节</strong>：</p>
+                                <ul>
+                                    <li>从追踪数据构建服务依赖图</li>
+                                    <li>节点表示服务，边表示调用关系</li>
+                                    <li>消息传递层聚合邻居节点特征</li>
+                                    <li>注意力机制区分邻居重要性</li>
+                                    <li>多层堆叠捕获多跳依赖关系</li>
+                                    <li>根据节点异常得分排序确定根因</li>
+                                </ul>
+                                <p><strong>性能评估</strong>：在电商微服务平台上准确率达0.95，平均排名为1.3，根因定位时间小于1秒</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="work-card">
+                            <h5>REASON (2023)</h5>
+                            <div class="work-details">
+                                <p><strong>核心技术</strong>：层次化GNN的多层级系统根因分析</p>
+                                <p><strong>实现细节</strong>：</p>
+                                <ul>
+                                    <li>构建双层级依赖图：宿主机和容器服务层</li>
+                                    <li>设计层内关系捕捉同级组件依赖</li>
+                                    <li>设计层间关系表示跨层级宿主关系</li>
+                                    <li>针对不同类型节点设计特定参数矩阵</li>
+                                    <li>层内传播基于图注意力网络(GAT)</li>
+                                    <li>层间传播使用门控机制控制信息流</li>
+                                </ul>
+                                <p><strong>性能评估</strong>：在大规模云平台测试，与传统方法相比准确率提升35%，F1分数达0.92，查全率显著提高</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <div class="work-card">
+                            <h5>TraceVAE (2023)</h5>
+                            <div class="work-details">
+                                <p><strong>核心技术</strong>：图变分自编码器处理追踪结构和时间异常</p>
+                                <p><strong>实现细节</strong>：</p>
+                                <ul>
+                                    <li>图编码设计：使用GCN将追踪拓扑编码为潜变量</li>
+                                    <li>时间编码设计：编码器将时间序列映射为潜变量</li>
+                                    <li>双重解码器：同时重构图结构和时间模式</li>
+                                    <li>损失函数：结合结构重建损失和时间重建损失</li>
+                                    <li>异常检测：基于两类重建误差判定异常</li>
+                                </ul>
+                                <p><strong>性能评估</strong>：在大规模生产环境测试，异常检测AUC达0.96，与基准方法相比提高了15%的准确率，尤其在复杂结构追踪上表现优异</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="work-card">
+                            <h5>Sage (2021)</h5>
+                            <div class="work-details">
+                                <p><strong>核心技术</strong>：图变分自编码器进行反事实因果推断</p>
+                                <p><strong>实现细节</strong>：</p>
+                                <ul>
+                                    <li>图结构编码：使用归一化边矩阵和节点特征</li>
+                                    <li>因果图学习：基于观察数据学习潜在因果关系</li>
+                                    <li>反事实生成：在潜空间进行干预生成假设场景</li>
+                                    <li>干预效果评估：计算干预前后图状态差异</li>
+                                    <li>根因定位：选择干预效果最显著的节点作为根因</li>
+                                </ul>
+                                <p><strong>性能评估</strong>：在合成数据和真实微服务数据上测试，Precision@1达0.89，比传统方法提高约25%，且能提供可解释的因果链路图</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+             <div class="timeline-item" id="llm">
                 <div class="timeline-content">
                     <h2>LLM时代的根因分析(2023-2024)</h2>
                     <div class="card">
@@ -830,6 +1663,88 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">根因分析方法架构</h2>
+        
+        <!-- 添加整体方法架构部分 -->
+        <div class="card mb-5">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">RCA方法架构总览</h3>
+            </div>
+            <div class="card-body">
+                <p class="lead">根因分析(RCA)方法可以分为以下几大类别：</p>
+                
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="content-structure-card">
+                            <h5><i class="fas fa-chart-line mr-2"></i>统计方法</h5>
+                            <p>基于数据统计特性和相关性分析的方法，包括时间序列分析、相关性分析、假设检验等。</p>
+                            <span class="badge bg-primary">相关性分析</span>
+                            <span class="badge bg-primary">时序分析</span>
+                            <span class="badge bg-primary">异常检测</span>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 mb-4">
+                        <div class="content-structure-card">
+                            <h5><i class="fas fa-brain mr-2"></i>深度学习方法</h5>
+                            <p>利用神经网络和深度学习技术进行特征提取、模式识别和故障预测的方法。</p>
+                            <span class="badge bg-success">CNN</span>
+                            <span class="badge bg-success">RNN/LSTM</span>
+                            <span class="badge bg-success">GNN</span>
+                            <span class="badge bg-success">Transformer</span>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 mb-4">
+                        <div class="content-structure-card">
+                            <h5><i class="fas fa-project-diagram mr-2"></i>因果推断方法</h5>
+                            <p>基于因果图和因果关系推断的方法，能够发现复杂系统中的因果依赖。</p>
+                            <span class="badge bg-warning text-dark">因果图</span>
+                            <span class="badge bg-warning text-dark">贝叶斯网络</span>
+                            <span class="badge bg-warning text-dark">Do-Calculus</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="content-structure-card">
+                            <h5><i class="fas fa-code-branch mr-2"></i>图分析方法</h5>
+                            <p>基于服务调用图、日志序列图等构建的图分析方法，通过定位异常传播路径识别根因。</p>
+                            <span class="badge bg-danger">传播分析</span>
+                            <span class="badge bg-danger">路径分析</span>
+                            <span class="badge bg-danger">拓扑分析</span>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="content-structure-card">
+                            <h5><i class="fas fa-cogs mr-2"></i>专家系统方法</h5>
+                            <p>基于领域知识和规则的方法，包括决策树、规则推理和知识图谱等技术。</p>
+                            <span class="badge bg-info">决策树</span>
+                            <span class="badge bg-info">规则引擎</span>
+                            <span class="badge bg-info">知识图谱</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="io-transformation mt-4 p-3">
+                    <h5>方法选择指南</h5>
+                    <ul>
+                        <li><strong>大规模微服务系统：</strong> 图分析方法 + 深度学习方法组合效果较好</li>
+                        <li><strong>有明确度量指标系统：</strong> 统计方法结合因果推断方法效果较好</li>
+                        <li><strong>已有领域知识系统：</strong> 专家系统方法 + 统计方法组合效果较好</li>
+                        <li><strong>数据量大且复杂：</strong> 深度学习方法表现优异</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 各部分内容 -->
+        // ... existing code ...
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
