@@ -186,4 +186,146 @@ body {
 
 .tech-item.expanded .tech-details {
     max-height: 500px;
+}
+
+/* 方法对比表格样式 */
+.comparison-table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.comparison-table th, 
+.comparison-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.comparison-table th {
+    background-color: var(--secondary-color);
+    color: white;
+    font-weight: 600;
+}
+
+.comparison-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.comparison-table td:first-child {
+    font-weight: 500;
+}
+
+/* 特性对比卡片 */
+.features-comparison {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.feature-card {
+    flex: 1 1 300px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.feature-card h5 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.feature-card ul {
+    padding-left: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+}
+
+.feature-card.strength::before {
+    background-color: #2ecc71;
+}
+
+.feature-card.weakness::before {
+    background-color: #e74c3c;
+}
+
+.feature-card.neutral::before {
+    background-color: #3498db;
+}
+
+/* 进化路线图 */
+.evolution-chart {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.evolution-timeline {
+    position: relative;
+    margin: 30px 0;
+    padding-bottom: 10px;
+}
+
+.evolution-timeline::before {
+    content: '';
+    position: absolute;
+    height: 4px;
+    background: linear-gradient(to right, #9b59b6, #3498db, #2ecc71);
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.evolution-point {
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.evolution-marker {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid var(--secondary-color);
+    margin: 0 auto 10px;
+}
+
+.evolution-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 5px;
 } 
